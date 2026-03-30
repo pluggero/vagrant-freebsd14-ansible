@@ -58,15 +58,14 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/^packer/variables.auto.pkrvars\\.hcl$/"
+        "/^packer/variables\\.auto\\.pkrvars\\.hcl$/"
       ],
       "matchStrings": [
         "vm_guest_os_version\\s+=\\s+\"(?<currentValue>[\\d\\.]+)\""
       ],
-      "datasourceTemplate": "custom.debian-installer",
-      "depNameTemplate": "debian-installer",
-      "versioningTemplate": "semver",
-      "extractVersionTemplate": "debian-(?<version>.+)-amd64-netinst\\.iso"
+      "datasourceTemplate": "custom.freebsd-installer",
+      "depNameTemplate": "freebsd-installer",
+      "versioningTemplate": "semver"
     }
   ],
   "customDatasources": {
@@ -74,9 +73,12 @@
       "defaultRegistryUrlTemplate": "https://download.virtualbox.org/virtualbox/LATEST-STABLE.TXT",
       "format": "plain"
     },
-    "debian-installer": {
-      "defaultRegistryUrlTemplate": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/",
-      "format": "html"
+    "freebsd-installer": {
+      "defaultRegistryUrlTemplate": "https://download.freebsd.org/releases/ISO-IMAGES/",
+      "format": "html",
+      "transformTemplates": [
+        "{\"releases\": $map(releases, function($r) { {\"version\": $replace($r.version, /\\/$/, \"\")} })}"
+      ]
     }
   }
 }
