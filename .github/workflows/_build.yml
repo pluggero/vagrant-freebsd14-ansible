@@ -15,7 +15,7 @@ on:
 
 env:
   PACKER_OUTPUT: packer/outputs/freebsd14-virtualbox-amd64/freebsd14-virtualbox.box
-  VBOX_VERSION: "7.2.6"
+  VBOX_VERSION: "7.2.8"
   VBOX_DEB_DISTRO: "Ubuntu"
   VBOX_DEB_CODENAME: "noble"
 
