@@ -2,7 +2,7 @@
 common_pkgs_pkgng:
   install:
     - sudo
-    - py311-ansible
+    - py312-ansible
   remove: []
   remove_regex: []
   remove_modified_configs: false
