@@ -66,6 +66,18 @@
       "datasourceTemplate": "custom.freebsd-installer",
       "depNameTemplate": "freebsd-installer",
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^ansible/vars/common_pkgs\\.yml$/"
+      ],
+      "matchStrings": [
+        "py(?<currentValue>\\d+)-ansible"
+      ],
+      "datasourceTemplate": "custom.ansible-freebsd-pkgname",
+      "depNameTemplate": "ansible-freebsd-pkgname",
+      "versioningTemplate": "loose"
     }
   ],
   "customDatasources": {
@@ -78,6 +90,13 @@
       "format": "html",
       "transformTemplates": [
         "{\"releases\": $map(releases, function($r) { {\"version\": $replace($r.version, /\\/$/, \"\")} })}"
+      ]
+    },
+    "ansible-freebsd-pkgname": {
+      "defaultRegistryUrlTemplate": "https://repology.org/api/v1/project/ansible",
+      "format": "json",
+      "transformTemplates": [
+        "{\"releases\": [$map($filter($, function($v){$v.repo=\"freebsd\"}), function($r){ {\"version\": $replace($r.binname, /^py(\\d+)-ansible$/, \"$1\")} })]}"
       ]
     }
   }
