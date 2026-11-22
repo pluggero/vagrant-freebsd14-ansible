@@ -70,7 +70,7 @@
       ],
       "datasourceTemplate": "custom.freebsd-installer",
       "depNameTemplate": "freebsd-installer",
-      "versioningTemplate": "semver"
+      "versioningTemplate": "semver-coerced"
     },
     {
       "customType": "regex",
