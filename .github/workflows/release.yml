@@ -12,7 +12,7 @@ env:
   BOX_NAME: freebsd14-ansible
   PROVIDER: virtualbox
   ARCHITECTURE: amd64
-  VBOX_VERSION: "7.2.18"
+  VBOX_VERSION: "7.2.22"
   VBOX_GUEST_VERSION: "7.2.14"
 
 jobs:
