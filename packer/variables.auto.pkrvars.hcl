@@ -5,7 +5,7 @@
 # Virtual Machine Settings
 vm_name                             = "freebsd14"
 vm_hostname                         = "freebsd14"
-vm_guest_os_version                 = "14.3"
+vm_guest_os_version                 = "15.2"
 vm_guest_iso_checksum_x86_64        = "f564822bc72d420d1e1a6faacb72f6056d828fcf539dfafd52e08503ef5fab68"
 vm_boot_wait                        = "10s"
 vm_cpu_core                         = 4
